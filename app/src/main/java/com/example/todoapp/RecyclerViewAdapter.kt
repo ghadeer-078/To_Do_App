@@ -23,10 +23,11 @@ class RecyclerViewAdapter(private val items: ArrayList<ToDoItem>): RecyclerView.
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        val item = items[position].content
+        val item = items[position]
 
         holder.binding.apply {
-            cbItem.text = item
+            cbItem.text = item.content
+            cbItem.isChecked = item.isSelected
             cbItem.setOnCheckedChangeListener { _, _ ->
                 if (cbItem.isChecked) {
                     cbItem.setTextColor(Color.GRAY)
